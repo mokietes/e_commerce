@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiFillStar,
-  AiOutlineStar,
-} from "react-icons/ai";
+// import {
+//   AiOutlineMinus,
+//   AiOutlinePlus,
+//   AiFillStar,
+//   AiOutlineStar,
+// } from "react-icons/ai";
 
 import { client, urlFor } from "../../lib/client";
-import { Product } from "../../components";
-import { useStateContext } from "../../context/StateContext";
+//import { Product } from "../../components";
+//import { useStateContext } from "../../context/StateContext";
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
@@ -30,8 +30,7 @@ export const getStaticPaths = async () => {
       slug {
         current
       }
-    }
-    `;
+    }`;
 
   const products = await client.fetch(query);
 
@@ -49,7 +48,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-  const productsQuery = '*[_type == "product"]';
+  const productsQuery = `*[_type == "product"]`;
 
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
