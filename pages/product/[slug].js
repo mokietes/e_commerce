@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-// import {
-//   AiOutlineMinus,
-//   AiOutlinePlus,
-//   AiFillStar,
-//   AiOutlineStar,
-// } from "react-icons/ai";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiFillStar,
+  AiOutlineStar,
+} from "react-icons/ai";
 
 import { client, urlFor } from "../../lib/client";
 //import { Product } from "../../components";
@@ -18,6 +18,18 @@ const ProductDetails = ({ product, products }) => {
         <div>
           <div className="image-container">
             <img src={urlFor(image && image[0])} />
+          </div>
+          {/* <div className="small-images-container">
+            {image?.map((item, i) => (
+              <img src={urlFor(item)} classNamme="" />
+            ))}
+          </div> */}
+        </div>
+
+        <div className="product-details-desc">
+          <h1>{name}</h1>
+          <div className="reviews">
+            <div></div>
           </div>
         </div>
       </div>
