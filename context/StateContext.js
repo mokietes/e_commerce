@@ -9,5 +9,11 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState();
   const [qty, setQty] = useState(1);
 
-  return <Context.Provider>{children}</Context.Provider>;
+  return (
+    <Context.Provider
+      value={{ showCart, cartItems, totalPrice, totalQuantities, qty }}
+    >
+      {children}
+    </Context.Provider>
+  );
 };
