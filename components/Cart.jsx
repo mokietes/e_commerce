@@ -11,10 +11,29 @@ import toast from "react-hot-toast";
 
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
-import getStripe from "../lib/getStripe";
+//import getStripe from "../lib/getStripe";
 
 const Cart = () => {
-  return <div>Cart</div>;
+  const cartRef = useRef();
+
+  const { totalPrice, totalQuantities, cartItems, setShowCart } =
+    useStateContext();
+
+  return (
+    <div className="cart-wrapper" ref={cartRef}>
+      <div className="cart-container">
+        <button
+          type="button"
+          className="cart-heading"
+          onClick={() => setShowCart(false)}
+        >
+          <AiOutlineLeft />
+          <span className="heading">Your Cart</span>
+          <span className="cart-num-items">({totalQuantities} tems)</span>
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Cart;
