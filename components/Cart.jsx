@@ -70,9 +70,13 @@ const Cart = () => {
       </div>
 
       <div className="product-container">
-          {cartItems.length >= 1 && cartItems.map((item) => (
+        {cartItems.length >= 1 &&
+          cartItems.map((item) => (
             <div className="product" key={item._id}>
-              <img src={urlFor(item?.image[0])} className="cart-product-image" />
+              <img
+                src={urlFor(item?.image[0])}
+                className="cart-product-image"
+              />
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
@@ -80,13 +84,23 @@ const Cart = () => {
                 </div>
                 <div className="flex bottom">
                   <div>
-                  <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
-                    <AiOutlineMinus />
-                    </span>
-                    <span className="num" onClick="">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
-                  </p>
+                    <p className="quantity-desc">
+                      <span
+                        className="minus"
+                        onClick={() => toggleCartItemQuanitity(item._id, "dec")}
+                      >
+                        <AiOutlineMinus />
+                      </span>
+                      <span className="num" onClick="">
+                        {item.quantity}
+                      </span>
+                      <span
+                        className="plus"
+                        onClick={() => toggleCartItemQuanitity(item._id, "inc")}
+                      >
+                        <AiOutlinePlus />
+                      </span>
+                    </p>
                   </div>
                   <button
                     type="button"
@@ -100,19 +114,20 @@ const Cart = () => {
             </div>
           ))}
 
-      {cartItems.length >= 1 && (
-        <div className="cart-bottom">
-          <div className="total">
-            <h3>Subtotal:</h3>
-            <h3>${totalPrice}</h3>
+        {cartItems.length >= 1 && (
+          <div className="cart-bottom">
+            <div className="total">
+              <h3>Subtotal:</h3>
+              <h3>${totalPrice}</h3>
+            </div>
+            <div className="btn-container">
+              <button type="button" className="btn" onClick={handleCheckout}>
+                Pay with Stripe
+              </button>
+            </div>
           </div>
-          <div className="btn-container">
-            <button type="button" className="btn" onClick={handleCheckout}>
-              Pay with Stripe
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
