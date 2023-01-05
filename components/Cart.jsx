@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import React, { useRef } from "react";
 import Link from "next/link";
 import {
