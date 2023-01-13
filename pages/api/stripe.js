@@ -22,6 +22,8 @@ export default async function handler(req, res) {
 
           return {};
         }),
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/canceled`,
       };
     } catch (err) {}
   } else {
