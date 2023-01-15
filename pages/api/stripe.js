@@ -40,10 +40,13 @@ export default async function handler(req, res) {
         cancel_url: `${req.headers.origin}/canceled`,
       };
 
+      // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
 
       res.status(200).json(session);
     } catch (err) {}
   } else {
+    res.setHeader("Allow", "POST");
+    res.status(405).end("Method Not Allowed");
   }
 }
