@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         mode: "payment",
         payment_method_types: ["card"],
         billing_address_collection: "auto",
-        shipping_options: [{ shipping_rate: "shr_1MP3oICmL7RRnnqTdI6OR6f4" }],
+        shipping_options: [{ shipping_rate: "shr_1MP3ovCmL7RRnnqTMX2ZxbTC" }],
         line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           const newImage = img
@@ -40,6 +40,7 @@ export default async function handler(req, res) {
         cancel_url: `${req.headers.origin}/canceled`,
       };
 
+      // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
 
       res.status(200).json(session);
