@@ -1,4 +1,0 @@
-[[plugins]]
-
-[build]
-publish = ".next"
