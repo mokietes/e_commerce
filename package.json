@@ -27,6 +27,6 @@
     "update": "^0.7.4"
   },
   "devDependencies": {
-    "netlify-cli": "^17.37.2"
+    "netlify-cli": "^27.19.0"
   }
 }
